@@ -1,6 +1,6 @@
 # DocSync
 
-A Google Docs–style editor built as a full-stack YouTube tutorial. Sign in, open a letter-sized page, type with someone else in real time, and share a view-only link — all on Next.js, with no custom WebSocket server.
+A Google Docs–style collaborative editor built with Next.js. Sign in, open a letter-sized page, type with someone else in real time, and share a view-only link — with no custom WebSocket server.
 
 <p align="center">
   <img src="public/login-page.png" alt="DocSync sign-in screen with Google and email" width="920" />
@@ -10,7 +10,7 @@ A Google Docs–style editor built as a full-stack YouTube tutorial. Sign in, op
   <img src="public/dashboard-page.png" alt="DocSync dashboard with new document card and recent documents" width="920" />
 </p>
 
-## What you build in the video
+## Core features
 
 - **Auth** — email and password, plus Google OAuth, with sessions that survive a refresh
 - **Dashboard** — a Docs-like homepage: search, Blank card, recent documents, rename and delete
@@ -43,11 +43,11 @@ A Google Docs–style editor built as a full-stack YouTube tutorial. Sign in, op
 5. Presence is rendered as a caret + name in the page, and as overlapping avatars beside Share.
 6. Share snapshots the current HTML into Postgres and mints a secret `/share/<token>` URL. That page is view-only and skips login.
 
-## Tutorial chapters
+## Development milestones
 
-Each chapter is a git branch. Check one out to land on the exact state of that part of the video.
+Each implementation stage is available as a Git branch.
 
-| # | Branch | Chapter |
+| # | Branch | Milestone |
 | --- | --- | --- |
 | 1 | `01-project-setup-and-auth` | Project setup and authentication |
 | 2 | `02-dashboard-and-document-crud` | Dashboard and document CRUD |
@@ -56,11 +56,13 @@ Each chapter is a git branch. Check one out to land on the exact state of that p
 | 5 | `05-presence-and-live-cursors` | Live cursors and presence avatars |
 | 6 | `06-public-read-only-share` | Public view-only share link |
 
+To inspect the real-time editing stage:
+
 ```bash
 git checkout 04-realtime-collaborative-editing
 ```
 
-Chapter notes (what shipped, and files in the order they were added) live in `docs/<branch-name>.md`.
+Implementation notes for each milestone are available in `docs/<branch-name>.md`.
 
 ## Run it locally
 
@@ -109,8 +111,8 @@ npx prisma migrate deploy
 
 ## What this project does not include
 
-The original outline left comments, notifications, version history, and role-based invites as a later Part 2. This repo stops at a public **view-only** share link. Live document content lives in Liveblocks; the share page shows the HTML snapshot taken when the owner last clicked Share.
+Comments, notifications, version history, and role-based invites are planned follow-up features. This release stops at a public **view-only** share link. Live document content lives in Liveblocks; the share page shows the HTML snapshot taken when the owner last clicked Share.
 
 ## License
 
-Built as a tutorial companion. Use and remix it for learning and your own videos.
+The project is provided for development and personal reuse.
